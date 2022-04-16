@@ -82,7 +82,6 @@ body {
 .cancelBtn {
   display: block;
   width: 50%;
-  /*margin-left: auto;*/
   text-align: center;
   padding: 15px 30px;
   border: none;
@@ -127,7 +126,7 @@ a{
 }
 
 a:visited { 
-  color: greenyellow;
+  color: greenyellow
 }
 
 a.cancelBtn:visited{
@@ -136,4 +135,8 @@ a.cancelBtn:visited{
 
 a:hover { 
   color: green;
+}
+
+.icon{
+  width: 300px;
 }

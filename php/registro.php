@@ -16,22 +16,22 @@
 
       <div class="inputContainer">
         <input type="text" class="input-green" placeholder="a">
-        <label for="" class="labelform">Email</label>
+        <label class="labelform">Email</label>
       </div>
 
       <div class="inputContainer">
         <input type="text" class="input-green" placeholder="a">
-        <label for="" class="labelform">Username</label>
+        <label class="labelform">Username</label>
       </div>
 
       <div class="inputContainer">
         <input type="text" class="input-green" placeholder="a">
-        <label for="" class="labelform">Password</label>
+        <label class="labelform">Password</label>
       </div>
 
       <div class="inputContainer">
         <input type="text" class="input-green" placeholder="a">
-        <label for="" class="labelform">Confirm Password</label>
+        <label class="labelform">Confirm Password</label>
       </div>
 
       <input type="submit" class="submitBtn mx-auto" value="Registrar" />
