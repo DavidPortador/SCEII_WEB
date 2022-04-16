@@ -1,24 +1,19 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');*/
-
-
 body {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   margin: 0;
   padding: 0;
   background-color: #212121;
   color: white;
-  /*font-family: "lato", sans-serif;*/
 }
 
 .signupFrm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   height: 100vh;
 }
 
-
-.form {
+.form-green {
   background-color: transparent;
   width: 400px;
   border-radius: 8px;
@@ -26,20 +21,15 @@ body {
   box-shadow: 0 0px 10px green;
 }
 
-.title {
-  font-size: 50px;
-  margin-bottom: 50px;
-}
-
 .inputContainer {
-  position: relative;
-  height: 45px;
+  position: relative !important;
+  height: 55px;
   width: 90%;
   margin-bottom: 5%;
 }
 
-.input {
-  position: absolute;
+.input-green {
+  position: absolute !important;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -54,9 +44,8 @@ body {
   z-index: 1;
 }
 
-
-.label {
-  position: absolute;
+.labelform {
+  position: absolute !important;
   top: 15px;
   left: 15px;
   padding: 0 4px;
@@ -89,7 +78,7 @@ body {
   background-color: rgba(20, 90, 50, 1);
   transform: translateY(-2px);
 }
-.input:focus + .label {
+.input-green:focus + .labelform {
   top: -7px;
   left: 3px;
   z-index: 10;
@@ -97,7 +86,7 @@ body {
   font-weight: 600;
 }
 
-.input:not(:placeholder-shown)+ .label {
+.input-green:not(:placeholder-shown)+ .labelform {
   top: -7px;
   left: 3px;
   z-index: 10;
@@ -105,6 +94,6 @@ body {
   font-weight: 600;
 }
 
-.input:focus {
+.input-green:focus {
   border: 2px solid green;
 }
