@@ -1,5 +1,5 @@
 body {
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   background-color: #212121;
@@ -7,9 +7,9 @@ body {
 }
 
 .signupFrm {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -22,19 +22,19 @@ body {
 }
 
 .inputContainer {
-  position: relative !important;
+  position: relative;
   height: 55px;
   width: 90%;
   margin-bottom: 5%;
 }
 
 .input-green {
-  position: absolute !important;
+  position: absolute;
   top: 0px;
   left: 0px;
   height: 100%;
   width: 100%;
-  border: 2px solid rgba(20, 90, 50, 1);
+  border: 2px solid #145A32;
   border-radius: 7px;
   color: white;
   font-size: 16px;
@@ -45,7 +45,7 @@ body {
 }
 
 .labelform {
-  position: absolute !important;
+  position: absolute;
   top: 15px;
   left: 15px;
   padding: 0 4px;
@@ -75,9 +75,32 @@ body {
 }
 
 .submitBtn:hover {
-  background-color: rgba(20, 90, 50, 1);
+  background-color: #145A32;
   transform: translateY(-2px);
 }
+
+.cancelBtn {
+  display: block;
+  width: 50%;
+  /*margin-left: auto;*/
+  text-align: center;
+  padding: 15px 30px;
+  border: none;
+  background-color: #EF2929;
+  text-decoration: none;
+  color: white;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.cancelBtn:hover {
+  background-color: #A40000;
+  transform: translateY(-2px);
+}
+
 .input-green:focus + .labelform {
   top: -7px;
   left: 3px;
@@ -96,4 +119,21 @@ body {
 
 .input-green:focus {
   border: 2px solid green;
+}
+
+a{
+  color: greenyellow;
+  text-decoration: none;
+}
+
+a:visited { 
+  color: greenyellow;
+}
+
+a.cancelBtn:visited{
+  color: white;
+}
+
+a:hover { 
+  color: green;
 }

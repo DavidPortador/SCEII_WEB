@@ -34,7 +34,12 @@
         <label for="" class="labelform">Confirm Password</label>
       </div>
 
-      <input type="submit" class="submitBtn" value="Sign up">
+      <input type="submit" class="submitBtn mx-auto" value="Registrar" />
+
+      
+      <a class="cancelBtn mx-auto" href="../index.html">Cancelar</a>
+      
+      
     </form>
     </div>
   </div>
