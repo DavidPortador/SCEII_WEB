@@ -1,0 +1,110 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');*/
+
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #212121;
+  color: white;
+  /*font-family: "lato", sans-serif;*/
+}
+
+.signupFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.form {
+  background-color: transparent;
+  width: 400px;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0 0px 10px green;
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 5%;
+}
+
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 2px solid rgba(20, 90, 50, 1);
+  border-radius: 7px;
+  color: white;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: #212121;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+::placeholder {
+  color: transparent;
+}
+
+.submitBtn {
+  display: block;
+  width: 50%;
+  /*margin-left: auto;*/
+  padding: 15px 30px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.submitBtn:hover {
+  background-color: rgba(20, 90, 50, 1);
+  transform: translateY(-2px);
+}
+.input:focus + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input:not(:placeholder-shown)+ .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input:focus {
+  border: 2px solid green;
+}
