@@ -1,4 +1,5 @@
 body {
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,8 +15,9 @@ body {
 }
 
 .form-green {
+  position: relative;
   background-color: transparent;
-  width: 400px;
+  width: 600px;
   border-radius: 8px;
   padding: 20px 40px;
   box-shadow: 0 0px 10px green;
@@ -24,8 +26,8 @@ body {
 .inputContainer {
   position: relative;
   height: 55px;
-  width: 90%;
-  margin-bottom: 5%;
+  width: 100%;
+  margin-bottom: 3%;
 }
 
 .input-green {
@@ -61,17 +63,17 @@ body {
 
 .submitBtn {
   display: block;
-  width: 50%;
-  /*margin-left: auto;*/
+  width: 40%;
   padding: 15px 30px;
   border: none;
   background-color: green;
+  font-weight: bold;
   color: white;
   border-radius: 60px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 5%;
-  margin-bottom: 3%;
+  margin-top: 4%;
+  margin-bottom: 2%;
 }
 
 .submitBtn:hover {
@@ -81,18 +83,19 @@ body {
 
 .cancelBtn {
   display: block;
-  width: 50%;
+  width: 40%;
   text-align: center;
   padding: 15px 30px;
   border: none;
   background-color: #EF2929;
+  font-weight: bold;
   text-decoration: none;
   color: white;
   border-radius: 60px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 5%;
-  margin-bottom: 3%;
+  margin-top: 4%;
+  margin-bottom: 2%;
 }
 
 .cancelBtn:hover {
@@ -139,4 +142,20 @@ a:hover {
 
 .icon{
   width: 300px;
+}
+
+select {
+  position: relative;
+  background: transparent;
+  height: 55px;
+  width: 100%;
+  padding: 5px;
+  border: 2px solid #145A32;
+  border-radius: 7px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 3%;
+}
+select option{
+  background-color: #145A32;
 }
