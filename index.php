@@ -14,23 +14,37 @@
 	<body class="text-white text-center">
 		<div class="signupFrm">
 			<!-- Formulario de sesión -->
-			<form action="" class="form-green">
-				<img class="mb-4" src="assets/logo.png" alt="" width="140" height="140">
+			<form method="post" action="php/validarLogin.php" class="form-green">
+				<img src="assets/logo.png" alt="logo" width="140" height="140">
 				<h3 class="fw-normal">Iniciar Sesión</h3>
 				<div class="inputContainer">
-					<input type="email" class="input-green" placeholder="a" required />
+					<input name="correo" type="email" class="input-green" placeholder="a" required />
 					<label class="labelform">
-						<i class="fa-solid fa-envelope"></i> Correo
+						<i class="fa-solid fa-envelope"></i> Correo:
 					</label>
 				</div>
 				<div class="inputContainer">
-					<input type="password" class="input-green" placeholder="a" required />
+					<input name="clave" type="password" class="input-green" placeholder="a" required />
 					<label class="labelform">
-						<i class="fa-solid fa-key"></i> Contraseña
+						<i class="fa-solid fa-key"></i> Contraseña:
 					</label>
 				</div>
+
+				<?php
+					if(isset($_GET['e'])){
+						if(isset($_GET['e']) == "ne"){
+							echo "<div class='text-danger text-end'><b>Usuario incorrecto</b></div>";
+						}else if(isset($_GET['e']) == "va"){
+							echo "<div class='text-danger text-end'><b>El usuario esta vacío</b></div>";
+						}else if(isset($_GET['e']) == "ex"){
+							echo "<div class='text-danger text-end'><b>Ocurrio una Exception</b></div>";
+						}
+					}
+				?>
+
 				<a href="#">Olvide mi contraseña</a>
-				<input type="submit" class="submitBtn mx-auto" value="Entrar">
+				<input type="hidden" name="metodo" value="vallidarUsuario"/>
+				<input type="submit" class="submitBtn mx-auto" value="Entrar" />
 				<label>¿No tienes una cuenta?</label>
 				<br>
 				<!-- Iconos con vinculos a redes sociales -->
@@ -45,6 +59,7 @@
 				<a href="https://web.whatsapp.com/" target="_bank">
 					<i class="fa-brands fa-whatsapp fa-2x"></i>
 				</a>
+
 			</form>
 		</div>
 	</body>

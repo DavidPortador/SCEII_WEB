@@ -12,70 +12,123 @@
 <body>
   <div class="signupFrm">
     <div class="wrapper">
-      <form action="" class="form-green">
-        <h1 class="title">Registro</h1>
+      <form method="post" action="" class="form-green">
+        <h3 class="fw-normal text-center">Registro</h3>
+        <img id="imgTipo" class="imgTipo" src="../assets/alumno.png" />
+        <select id="tipoUsuario" onchange="ShowSelected();">
+          <option value="alumno" selected>Alumno</option>
+          <option value="docente">Docente</option>
+          <option value="visitante">Visitante</option>
+        </select>
+
+        <script type="text/javascript">
+          function ShowSelected(){
+            var tipo = document.getElementById("tipoUsuario").value;
+            document.getElementById('imgTipo').src = "../assets/"+tipo+".png";
+            if(tipo == "alumno"){ // alumno
+              setAlumno("block");
+              setVisitante("none");
+            }else if(tipo == "docente"){ // docente
+              setAlumno("none");
+              setVisitante("none");
+            }else if(tipo == "visitante"){ // visitante
+              setAlumno("none");
+              setVisitante("block");
+            }
+          }
+          function setAlumno(disp){ // Alumnos
+            document.getElementById('no_control').style.display = disp;
+            document.getElementById('lblnc').style.display = disp;
+            document.getElementById('carreras').style.display = disp;
+            document.getElementById('semestres').style.display = disp;
+          }
+          function setVisitante(disp){ // Visitantes
+            document.getElementById('institucion').style.display = disp;
+            document.getElementById('lblin').style.display = disp;
+            document.getElementById('fecha').style.display = disp;
+            document.getElementById('lblfe').style.display = disp;
+          }
+        </script>
 
         <div class="inputContainer">
-          <input type="text" class="input-green" placeholder="a">
+          <input id="nombre" type="text" class="input-green" placeholder="a" required />
           <label class="labelform">
-          <i class="fa-solid fa-user"></i> Nombre
+          <i class="fa-solid fa-user"></i> Nombre:
           </label>
         </div>
-
         <div class="inputContainer">
-          <input type="text" class="input-green" placeholder="a">
+          <input id="apellidos" type="text" class="input-green" placeholder="a" required />
           <label class="labelform">
-          <i class="fa-solid fa-user"></i> Apellidos
+          <i class="fa-solid fa-user"></i> Apellidos:
           </label>
         </div>
-
         <div class="inputContainer">
-          <input type="text" class="input-green" placeholder="a">
+          <input id="correo" type="email" class="input-green" placeholder="a" required />
           <label class="labelform">
-          <i class="fa-solid fa-envelope"></i> Correo
+          <i class="fa-solid fa-envelope"></i> Correo:
           </label>
         </div>
-
         <div class="inputContainer">
-          <input type="text" class="input-green" placeholder="a">
+          <input id="clave" type="password" class="input-green" placeholder="a" required />
           <label class="labelform">
-          <i class="fa-solid fa-id-card"></i> No. Control
+          <i class="fa-solid fa-key"></i> Contraseña:
           </label>
         </div>
-
-        <div class="inputContainer">
-          <input type="text" class="input-green" placeholder="a">
-          <label class="labelform">
-          <i class="fa-solid fa-key"></i> Contraseña
-          </label>
-        </div>
-
-        <select>
-          <option selected>Genero</option>
+        <select id="clave">
+          <option selected>Genero:</option>
           <option value="f">Femenino</option>
           <option value="m">Masculino</option>
           <option value="o">Otre</option>
         </select>
+        <div class="inputContainer">
+          <input id="fecha_Nac" type="date" class="input-green" placeholder="a" required />
+          <label class="labelform">
+          <i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
+          </label>
+        </div>
+          
+        <!-- Alumno -->
 
-        <select>
-          <option selected>Carrera</option>
+        <div class="inputContainer">
+          <input id="no_control" type="text" class="input-green" placeholder="a" />
+          <label id="lblnc" class="labelform">
+          <i class="fa-solid fa-id-card"></i> No. Control:
+          </label>
+        </div>
+        <select id="carreras">
+          <option selected>Carrera:</option>
           <option value="">listado de carreras disponibles...</option>
         </select>
-
-        <select>
-          <option selected>Semestre</option>
+        <select id="semestres">
+          <option selected>Semestre:</option>
           <option value="">listado de semestres disponibles...</option>
         </select>
 
+        <!-- visitante -->
+
         <div class="inputContainer">
-          <input type="date" class="input-green" placeholder="a">
-          <label class="labelform">
-          <i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento
+          <input id="institucion" type="text" class="input-green" placeholder="a" style="display:none;" />
+          <label id="lblin" class="labelform" style="display:none;">
+          <i class="fa-solid fa-user"></i> Institución:
+          </label>
+        </div>
+        <div class="inputContainer">
+          <input id="fecha" type="date" class="input-green" placeholder="a" style="display:none;" />
+          <label id="lblfe" class="labelform" style="display:none;">
+          <i class="fa-solid fa-calendar-days"></i> Fecha de visita:
           </label>
         </div>
 
-        <a class="cancelBtn mx-auto" href="../index.html">Cancelar</a>
-        <input type="submit" class="submitBtn mx-auto" value="Registrar" />
+        <!-- Botones -->
+
+        <table class="table table-bordered">
+            <td>
+              <a class="cancelBtn" href="../index.php">Cancelar</a>
+            </td>
+            <td>
+              <input type="submit" class="submitBtn" value="Registrar" />
+            </td>
+        </table>
 
       </form>
     </div>

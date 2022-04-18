@@ -1,5 +1,5 @@
 body {
-  position: relative;
+  /*position: relative;*/
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,30 +8,33 @@ body {
 }
 
 .signupFrm {
-  display: flex;
+  position: relative;
+  display: grid !important;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 1%;
 }
 
 .form-green {
-  position: relative;
+  /*position: relative;*/
   background-color: transparent;
   width: 600px;
   border-radius: 8px;
   padding: 20px 40px;
-  box-shadow: 0 0px 10px green;
+  box-shadow: 0 0 20px black;
+  margin-bottom: 2%;
 }
 
 .inputContainer {
-  position: relative;
+  position: relative !important;
   height: 55px;
   width: 100%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 
 .input-green {
-  position: absolute;
+  /*position: absolute;*/
   top: 0px;
   left: 0px;
   height: 100%;
@@ -47,7 +50,7 @@ body {
 }
 
 .labelform {
-  position: absolute;
+  position: absolute !important;
   top: 15px;
   left: 15px;
   padding: 0 4px;
@@ -63,38 +66,39 @@ body {
 
 .submitBtn {
   display: block;
-  width: 40%;
+  width: 150px;
+  text-align: center;
   padding: 15px 30px;
   border: none;
-  background-color: green;
+  background-color: #7AAD47;
   font-weight: bold;
+  font-size: 16px;
   color: white;
   border-radius: 60px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-bottom: 2%;
 }
 
 .submitBtn:hover {
-  background-color: #145A32;
+  background-color: green;
   transform: translateY(-2px);
 }
 
 .cancelBtn {
   display: block;
-  width: 40%;
+  width: 150px;
   text-align: center;
   padding: 15px 30px;
   border: none;
   background-color: #EF2929;
   font-weight: bold;
+  font-size: 16px;
   text-decoration: none;
   color: white;
   border-radius: 60px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-bottom: 2%;
 }
 
@@ -124,12 +128,12 @@ body {
 }
 
 a{
-  color: greenyellow;
+  color: #7AAD47;
   text-decoration: none;
 }
 
 a:visited { 
-  color: greenyellow
+  color: #7AAD47;
 }
 
 a.cancelBtn:visited{
@@ -156,6 +160,15 @@ select {
   font-size: 16px;
   margin-bottom: 3%;
 }
+
 select option{
-  background-color: #145A32;
+  background-color: #212121;
+}
+
+.imgTipo{
+  width: 150px; 
+  height: 150px;
+  display: block;
+  margin: auto;
+  margin-bottom: 2%;
 }

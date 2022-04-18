@@ -1,0 +1,9 @@
+{
+    "conexion":{
+        "server" : "localhost",
+        "user" : "su",
+        "password" : "3312",
+        "database" : "industrial",
+        "port": "3306"
+    }
+}
