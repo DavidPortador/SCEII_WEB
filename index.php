@@ -10,12 +10,13 @@
 		<link rel="shortcut icon" href="assets/logo_splash.png">
 		<script src="js/bootstrap.js"></script>
 	</head>
+
 	<!-- Cuerpo de la página -->
 	<body class="text-white text-center">
 		<div class="signupFrm">
+			<img src="assets/logo.png" alt="logo" class="mx-auto d-block" width="140px" height="140px">
 			<!-- Formulario de sesión -->
 			<form method="post" action="php/validarLogin.php" class="form-green">
-				<img src="assets/logo.png" alt="logo" width="140" height="140">
 				<h3 class="fw-normal">Iniciar Sesión</h3>
 				<div class="inputContainer">
 					<input name="correo" type="email" class="input-green" placeholder="a" required />
@@ -48,7 +49,7 @@
 				<label>¿No tienes una cuenta?</label>
 				<br>
 				<!-- Iconos con vinculos a redes sociales -->
-				<a href="php/registro.php">Crear una cuenta</a>
+				<a href="php/tipoRegistro.php">Crear una cuenta</a>
 				<br>
 				<a href="https://www.facebook.com/" target="_bank">
 					<i class="fa-brands fa-facebook fa-2x"></i>
@@ -63,4 +64,5 @@
 			</form>
 		</div>
 	</body>
+	
 </html>

@@ -185,7 +185,8 @@ create table practica_cuestionario(
 
 -- TRANSACCIONES (Usuario => tipoUsuario)
 
-/*create procedure insert_alumno(p_id_usuario int, p_no_control int, p_id_carrera int, p_id_semestre int)
+/*
+create procedure insert_alumno(p_id_usuario int, p_no_control int, p_id_carrera int, p_id_semestre int)
 language sql
     begin
         start transaction;
@@ -271,7 +272,8 @@ language sql
             commit;
         commit;
             end if;
-    end;*/
+    end;
+*/
 
 -- TABLAS INICIALIZADAS EN LA BASE DE DATOS
 
