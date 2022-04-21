@@ -12,7 +12,6 @@ class detalle extends baseDatos{
 		switch($tipo){
 			case 'listar':
 				$practica=mysqli_fetch_array($this->consulta("SELECT id from practicas where nombre='".$_POST['ver']."';"));
-				echo "SELECT * from actividades where id_practica=".$practica[0] ." , ". $_POST['ver']." , ".$_POST['completado'];
 				echo $this->despActividades("SELECT * from actividades where id_practica=".$practica[0], $_POST['ver'], $_POST['completado']);
 				break;
 		}

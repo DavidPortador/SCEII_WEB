@@ -72,12 +72,12 @@
 
         //
 
-        function crearSelect($tablaForanea, $campoDesplegar, $nomCampFormulario, $seleccionado){
-			$html = '<select name="'.$nomCampFormulario.'">';
-			$registros = $this->consulta("SELECT * FROM ".$tablaForanea." order by ".$campoDesplegar);
+        function crearSelect($tabla, $campo, $value){
+			$html = '<select name="'.$tabla.'">';
+			$registros = $this->consulta("SELECT * FROM ".$tabla." order by id");
+            $html .= '<option selected>'.$value.':</option>';
 			foreach($registros as $registro) { 
-				$html.= '<option '.(($seleccionado==$registro['id'])?'
-				selected ':'').' value="'.$registro['id'].'">'.$registro[$campoDesplegar].'</option>';
+				$html.= '<option value="'.$registro['id'].'">'.$registro[$campo].'</option>';
 			}
 			$html.= '</select>';
 			return $html;
@@ -166,8 +166,7 @@
             }	
             $html.='<br><div style="width:70%;margin:auto;border-radius:0.5rem;"><table>';
             $bloque = $this->consulta($query);
-            for ($i=0; $i < $this->numeroRegistros; $i++) { 
-                echo "pene";
+            for ($i=0; $i < $this->numeroRegistros; $i++) {
                 $registro=mysqli_fetch_array($bloque);
                 if($registro['realizado']=='s'){
                     $color="green";
@@ -176,7 +175,7 @@
                 }
                 $html.='<tr><td style="width:100px;">';
                 $html.='<div style="background-color:'.$color.';width:10px;height:60px;color:'.$color.';">.</div></td>';
-                $html.='<td style="width:100px;padding-left:10px;"><img class="iconoAct" src="https://cdn-icons.flaticon.com/png/512/3624/premium/3624883.png?token=exp=1650243598~hmac=9a885466f80f9c56c9312bec04a8d874" alt="libreta"> </td>';	
+                $html.='<td style="width:100px;padding-left:10px;"><i class="fa-solid fa-book fa-2x"></i></td>';	
                 $html.='<td><p style="width:650px;padding-left:30px;font-size:x-large;">'.$registro['nombre'].'</p></td>';		
                 $html.='<td style="width:100px;align-items:center;"><a href="alCinePuto7u7" class="btn btn-gris" style="">Hacer</a></td>';				
                 $html.='</tr>';

@@ -1,5 +1,6 @@
 <?php
 	include "head.php";
+  include "../../api/conexion.php";
 ?>
 
 <body>
@@ -17,7 +18,7 @@
             }else if(isset($_POST['alumno'])){
               echo '<i class="fa-solid fa-graduation-cap fa-5x"></i>';
             }else if(isset($_POST['visitante'])){
-              echo '<i class="fa-solid fa-robot fa-5x"></i>';
+              echo '<i class="fa-solid fa-rocket fa-5x"></i>';
             }
           ?>
         </div>
@@ -69,29 +70,24 @@
             <div class="inputContainer">
               <input id="no_control" type="text" class="input-green" placeholder="a" />
               <label id="lblnc" class="labelform">
-              <i class="fa-solid fa-id-card"></i> No. Control:
+                <i class="fa-solid fa-id-card"></i> No. Control:
               </label>
-            </div>
-            <select id="carreras">
-              <option selected>Carrera:</option>
-              <option value="">listado de carreras disponibles...</option>
-            </select>
-            <select id="semestres">
-              <option selected>Semestre:</option>
-              <option value="">listado de semestres disponibles...</option>
-            </select>';
+            </div>';
+            $obj = new baseDatos();
+            echo $obj->crearSelect("carrera", "nombre", "Carrera");
+            echo $obj->crearSelect("semestre", "nombre", "Semestre");
           }else if(isset($_POST['visitante'])){
             echo '
             <div class="inputContainer">
               <input id="institucion" type="text" class="input-green" placeholder="a" />
               <label id="lblin" class="labelform" >
-              <i class="fa-solid fa-user"></i> Institución:
+                <i class="fa-solid fa-user"></i> Institución:
               </label>
             </div>
             <div class="inputContainer">
               <input id="fecha" type="date" class="input-green" placeholder="a" />
               <label id="lblfe" class="labelform" >
-              <i class="fa-solid fa-calendar-days"></i> Fecha de visita:
+                <i class="fa-solid fa-calendar-days"></i> Fecha de visita:
               </label>
             </div>';
           }
@@ -107,8 +103,6 @@
               <input type="submit" class="submitBtn" value="Registrar" />
             </td>
         </table>
-
-        <!-- Select de prueba -->
 
       </form>
     </div>
