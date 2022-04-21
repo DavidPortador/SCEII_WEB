@@ -44,12 +44,11 @@
 				?>
 
 				<a href="#">Olvide mi contraseña</a>
-				<input type="hidden" name="metodo" value="vallidarUsuario"/>
 				<input type="submit" class="submitBtn mx-auto" value="Entrar" />
 				<label>¿No tienes una cuenta?</label>
 				<br>
 				<!-- Iconos con vinculos a redes sociales -->
-				<a href="php/tipoRegistro.php">Crear una cuenta</a>
+				<a href="php/registro/tipoRegistro.php">Crear una cuenta</a>
 				<br>
 				<a href="https://www.facebook.com/" target="_bank">
 					<i class="fa-brands fa-facebook fa-2x"></i>

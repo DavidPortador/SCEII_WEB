@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap');
 
 body {
   /*position: relative;*/
-  font-family: 'Merriweather', serif;
+  /*font-family: 'Merriweather', serif;*/
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   background-color: #131414;
   color: white;
@@ -196,4 +197,56 @@ select option{
   display: block;
   margin: auto;
   margin-bottom: 2%;
+}
+
+
+
+/*Eddy xd*/
+
+.bordes{
+  border:solid;
+  border-color:black;
+  
+}
+.icono{
+  width: 30px;
+  height: 30px;
+  float: right;
+}
+.iconoAct{
+  width: 60px;
+  height: 60px; 
+  float: left;
+  -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.btn-gris {
+  color: #fff;
+  background-color: #5F5C5C;
+  border-color: #5F5C5C;
+}
+.btn-gris:hover {
+  color: #fff;
+  background-color: #716C6C;
+  border-color: #716C6C;
+}
+.btn-check:focus + .btn-gris, .btn-gris:focus {
+  color: #fff;
+  background-color: #716C6C;
+  border-color: #716C6C;
+  box-shadow: 0 0 0 0.25rem rgba(82, 83, 83, 0.5);
+}
+.btn-check:checked + .btn-gris, .btn-check:active + .btn-prigrismary, .btn-gris:active, .btn-gris.active, .show > .btn-gris.dropdown-toggle {
+  color: #fff;
+  background-color: #716C6C;
+  border-color: #504E4E;
+}
+.btn-check:checked + .btn-gris:focus, .btn-check:active + .btn-gris:focus, .btn-gris:active:focus, .btn-gris.active:focus, .show > .btn-gris.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(82, 83, 83, 0.5);
+}
+.btn-gris:disabled, .btn-gris.disabled {
+  color: #fff;
+  background-color: #5F5C5C;
+  border-color: #5F5C5C;
 }

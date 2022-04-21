@@ -28,5 +28,5 @@
 </body>
 
 <?php
-	include "footer.php";
+	include "end.php";
 ?>

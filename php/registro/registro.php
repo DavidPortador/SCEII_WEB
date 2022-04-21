@@ -99,14 +99,16 @@
           
         <!-- Botones -->
 
-        <table class="table table-bordered">
+        <table>
             <td>
-              <a class="cancelBtn" href="../index.php">Cancelar</a>
+              <a class="cancelBtn" href="../../index.php">Cancelar</a>
             </td>
             <td>
               <input type="submit" class="submitBtn" value="Registrar" />
             </td>
         </table>
+
+        <!-- Select de prueba -->
 
       </form>
     </div>
@@ -114,5 +116,5 @@
 </body>
 
 <?php
-	include "footer.php";
+	include "end.php";
 ?>

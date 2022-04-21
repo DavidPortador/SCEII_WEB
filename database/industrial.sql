@@ -96,6 +96,9 @@ create table practicas(
     id int not null auto_increment,
     nombre varchar(50) not null,
     valor float,
+    porcentaje int,
+    actividades int,
+    realizo int,
     id_materia int,
     constraint practicasPK primary key (id),
     constraint practicasFK foreign key (id_materia) references materia (id),
@@ -145,6 +148,21 @@ create table enlaces(
     constraint enlacesPK primary key (id),
     constraint enlacesFK foreign key (id_materia) references materia (id)
 );
+
+-- TABLA ACTIVIDADES
+
+create table actividades (
+    id int(11) not null auto_increment,
+    nombre varchar(50) not null,
+    realizado char(1) not null,
+    id_practica int(11) not null,
+    id_archivo int(11) default null,
+    constraint actividadesPK primary key (id),
+    constraint actividadesFK1 foreign key (id_practica) references practicas (id),
+    constraint actividadesFK2 foreign key (id_archivo) references archivo (id)
+);
+
+-- FIN
 
 create table alumno_materia(
     id int not null auto_increment,
@@ -328,3 +346,29 @@ insert into docente (id_usuario) values
 --select * from usuario u join docente d on u.id = d.id_usuario;
 
 -- insert materia
+
+INSERT INTO materia (id, nombre, codigo, id_docente, id_semestre) VALUES
+(1, 'Laboratorio de seguridad', '100', 1, 1),
+(2, 'Laboratorio de manofacturas', '101', 1, 2),
+(3, 'Laboratorio de ergonomia', '102', 1, 7);
+
+-- insert practicas
+
+INSERT INTO practicas (id, nombre, valor, porcentaje, actividades, realizo, id_materia) VALUES
+(1, 'Practica de seguridad 1', 20, 100, 2, 2, 1),
+(2, 'Practica de seguridad 2', 20, 25, 4, 1, 1),
+(3, 'Practica 3', 20, 75, 4, 3, 1);
+
+-- insert actividades
+
+INSERT INTO actividades (id, nombre, realizado, id_practica, id_archivo) VALUES
+(1, 'actividad 1 ', 's', 1, NULL),
+(2, 'actividad 2', 's', 1, NULL),
+(3, 'actividad 1-2', 's', 2, NULL),
+(4, 'actividad 2-2', 'n', 2, NULL),
+(5, 'actividad 3-2', 'n', 2, NULL),
+(6, 'actividad 4-2', 'n', 2, NULL),
+(8, 'actividad 1-3', 's', 3, NULL),
+(9, 'actividad 2-3', 's', 3, NULL),
+(10, 'actividad 3-3', 's', 3, NULL),
+(11, 'actividad 4-3', 'n', 3, NULL);
