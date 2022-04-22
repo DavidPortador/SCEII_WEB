@@ -33,7 +33,9 @@
 
 				<?php
 					if(isset($_GET['e'])){
-						if(isset($_GET['e']) == "ne"){
+						if(isset($_GET['e']) == "ok"){
+							echo "<div class='text-success text-end'><b>Usuario insertado con exito</b></div>";
+						}else if(isset($_GET['e']) == "ne"){
 							echo "<div class='text-danger text-end'><b>Usuario incorrecto</b></div>";
 						}else if(isset($_GET['e']) == "va"){
 							echo "<div class='text-danger text-end'><b>El usuario esta vacío</b></div>";
@@ -47,9 +49,10 @@
 				<input type="submit" class="submitBtn mx-auto" value="Entrar" />
 				<label>¿No tienes una cuenta?</label>
 				<br>
-				<!-- Iconos con vinculos a redes sociales -->
 				<a href="php/registro/tipoRegistro.php">Crear una cuenta</a>
 				<br>
+				<!-- Iconos con vinculos a redes sociales 
+				
 				<a href="https://www.facebook.com/" target="_bank">
 					<i class="fa-brands fa-facebook fa-2x"></i>
 				</a>
@@ -58,6 +61,15 @@
 				</a>
 				<a href="https://web.whatsapp.com/" target="_bank">
 					<i class="fa-brands fa-whatsapp fa-2x"></i>
+				</a>
+				-->
+
+				<a href="https://play.google.com/store?hl=es" target="_bank">
+				<i class="fa-brands fa-google-play fa-2x"></i>
+				</a>
+
+				<a href="https://www.apple.com/mx/app-store/" target="_bank">
+					<i class="fa-brands fa-apple fa-2x"></i>
 				</a>
 
 			</form>

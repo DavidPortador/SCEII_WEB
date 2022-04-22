@@ -6,7 +6,7 @@
 <body>
   <div class="signupFrm">
     <div class="wrapper">
-      <form method="post" action="" class="form-green formlg">
+      <form method="post" action="../../api/insertarRegistro.php" class="form-green formlg">
         <h3 class="fw-normal text-center">Registro</h3>
 
         <div class="text-center formlg">
@@ -24,37 +24,37 @@
         </div>
 
         <div class="inputContainer">
-          <input id="nombre" type="text" class="input-green" placeholder="a" required />
+          <input name="nombre" type="text" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-user"></i> Nombre:
           </label>
         </div>
         <div class="inputContainer">
-          <input id="apellidos" type="text" class="input-green" placeholder="a" required />
+          <input name="apellidos" type="text" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-user"></i> Apellidos:
           </label>
         </div>
         <div class="inputContainer">
-          <input id="correo" type="email" class="input-green" placeholder="a" required />
+          <input name="correo" type="email" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-envelope"></i> Correo:
           </label>
         </div>
         <div class="inputContainer">
-          <input id="clave" type="password" class="input-green" placeholder="a" required />
+          <input name="clave" type="password" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-key"></i> Contraseña:
           </label>
         </div>
-        <select id="genero">
+        <select name="genero">
           <option selected>Genero:</option>
           <option value="f">Femenino</option>
           <option value="m">Masculino</option>
           <option value="o">Otre</option>
         </select>
         <div class="inputContainer">
-          <input id="fecha_Nac" type="date" class="input-green" placeholder="a" required />
+          <input name="fecha_nac" type="date" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
           </label>
@@ -62,13 +62,14 @@
 
         <?php
           if(isset($_POST['jefeLab'])){
-            echo '';
+            echo '<input name="metodo" type="hidden" value="insertarJefeLab" />';
           }else if(isset($_POST['docente'])){
-            echo '';
+            echo '<input name="metodo" type="hidden" value="insertarDocente" />';
           }else if(isset($_POST['alumno'])){
+            echo '<input name="metodo" type="hidden" value="insertarAlumno" />';
             echo '
             <div class="inputContainer">
-              <input id="no_control" type="text" class="input-green" placeholder="a" />
+              <input name="no_control" type="text" class="input-green" placeholder="a" />
               <label id="lblnc" class="labelform">
                 <i class="fa-solid fa-id-card"></i> No. Control:
               </label>
@@ -77,15 +78,16 @@
             echo $obj->crearSelect("carrera", "nombre", "Carrera");
             echo $obj->crearSelect("semestre", "nombre", "Semestre");
           }else if(isset($_POST['visitante'])){
+            echo '<input name="metodo" type="hidden" value="insertarVisitante" />';
             echo '
             <div class="inputContainer">
-              <input id="institucion" type="text" class="input-green" placeholder="a" />
+              <input name="institucion" type="text" class="input-green" placeholder="a" />
               <label id="lblin" class="labelform" >
                 <i class="fa-solid fa-user"></i> Institución:
               </label>
             </div>
             <div class="inputContainer">
-              <input id="fecha" type="date" class="input-green" placeholder="a" />
+              <input name="fecha" type="date" class="input-green" placeholder="a" />
               <label id="lblfe" class="labelform" >
                 <i class="fa-solid fa-calendar-days"></i> Fecha de visita:
               </label>

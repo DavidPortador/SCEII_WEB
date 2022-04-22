@@ -57,8 +57,8 @@
         public function nonQueryId($sqlstr){
             $results = $this->conexion->query($sqlstr);
             $filas = $this->conexion->affected_rows;
-            if($filas >= 1){
-                return $this->conexion->insert_id;
+            if($filas != 0){
+                return $filas;
             }else{
                 return 0;
             }
@@ -73,7 +73,7 @@
         //
 
         function crearSelect($tabla, $campo, $value){
-			$html = '<select name="'.$tabla.'">';
+			$html = '<select name="id_'.$tabla.'">';
 			$registros = $this->consulta("SELECT * FROM ".$tabla." order by id");
             $html .= '<option selected>'.$value.':</option>';
 			foreach($registros as $registro) { 

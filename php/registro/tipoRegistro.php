@@ -23,6 +23,15 @@
             <form action="registro.php" method="post">
 			    <input type="submit" name="visitante" class="regBtn mx-auto formlg" value="Visitante" />
             </form>
+			<?php
+				if(isset($_GET['e'])){
+					if(isset($_GET['e']) == "ni"){
+						echo "<div class='text-danger'><b>Error, el usuario NO fue insertado</b></div>";
+					}else if(isset($_GET['e']) == "va"){
+						echo "<div class='text-danger'><b>Campos vacios, vuelva a intentarlo</b></div>";
+					}
+				}
+			?>
         </div>
 	</div>
 </body>
