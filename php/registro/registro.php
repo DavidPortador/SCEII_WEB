@@ -19,6 +19,8 @@
               echo '<i class="fa-solid fa-graduation-cap fa-5x"></i>';
             }else if(isset($_POST['visitante'])){
               echo '<i class="fa-solid fa-rocket fa-5x"></i>';
+            }else{
+              header("location: tipoRegistro.php?e=tr"); // Tipo de Registro
             }
           ?>
         </div>
@@ -85,13 +87,9 @@
               <label id="lblin" class="labelform" >
                 <i class="fa-solid fa-user"></i> Institución:
               </label>
-            </div>
-            <div class="inputContainer">
-              <input name="fecha" type="date" class="input-green" placeholder="a" />
-              <label id="lblfe" class="labelform" >
-                <i class="fa-solid fa-calendar-days"></i> Fecha de visita:
-              </label>
             </div>';
+          }else{
+            header("location: tipoRegistro.php?e=tr"); // Tipo de Registro
           }
         ?>
           

@@ -222,7 +222,7 @@ language sql
         commit;
     end;
 
-    create procedure insert_visitante(p_id_usuario int, p_institucion varchar(50))
+create procedure insert_visitante(p_id_usuario int, p_institucion varchar(50))
 language sql
     begin
         start transaction ;
@@ -331,44 +331,46 @@ insert into semestre (nombre) values
 -- insert alumno
 insert into usuario 
 (nombre, apellidos, correo, clave, genero, tipoUsuario, fecha_Nac) values 
-('Johan Rafael', 'Rojas Cardenas', 'johan@itcelaya.edu.mx', password('12345'), 'm', 'alumno', '2000-01-01');
+    ('Johan Rafael', 'Rojas Cardenas', 'johan@itcelaya.edu.mx', password('12345'), 'm', 'alumno', '2000-01-01');
+
 insert into alumno (no_control, id_usuario, id_carrera, id_semestre) values 
-('39020457', 1, 9, 6);
+    ('39020457', 1, 9, 6);
     
 --select * from usuario u join alumno a on u.id = a.id_usuario join carrera c on c.id = a.id_carrera;
 
 -- insert docente
 insert into usuario (nombre, apellidos, correo, clave, genero, tipoUsuario, fecha_Nac) values 
-('Juan Rafael', 'Escutia Cardenas', 'juan@itcelaya.edu.mx', password('12345'), 'm', 'docente', '1970-01-01');
+    ('Juan Rafael', 'Escutia Cardenas', 'juan@itcelaya.edu.mx', password('12345'), 'm', 'docente', '1970-01-01');
+
 insert into docente (id_usuario) values
-(2);
+    (2);
     
 --select * from usuario u join docente d on u.id = d.id_usuario;
 
 -- insert materia
 
 INSERT INTO materia (id, nombre, codigo, id_docente, id_semestre) VALUES
-(1, 'Laboratorio de seguridad', '100', 1, 1),
-(2, 'Laboratorio de manofacturas', '101', 1, 2),
-(3, 'Laboratorio de ergonomia', '102', 1, 7);
+    (1, 'Laboratorio de seguridad', '100', 1, 1),
+    (2, 'Laboratorio de manofacturas', '101', 1, 2),
+    (3, 'Laboratorio de ergonomia', '102', 1, 7);
 
 -- insert practicas
 
 INSERT INTO practicas (id, nombre, valor, porcentaje, actividades, realizo, id_materia) VALUES
-(1, 'Practica de seguridad 1', 20, 100, 2, 2, 1),
-(2, 'Practica de seguridad 2', 20, 25, 4, 1, 1),
-(3, 'Practica 3', 20, 75, 4, 3, 1);
+    (1, 'Practica de seguridad 1', 20, 100, 2, 2, 1),
+    (2, 'Practica de seguridad 2', 20, 25, 4, 1, 1),
+    (3, 'Practica 3', 20, 75, 4, 3, 1);
 
 -- insert actividades
 
 INSERT INTO actividades (id, nombre, realizado, id_practica, id_archivo) VALUES
-(1, 'actividad 1 ', 's', 1, NULL),
-(2, 'actividad 2', 's', 1, NULL),
-(3, 'actividad 1-2', 's', 2, NULL),
-(4, 'actividad 2-2', 'n', 2, NULL),
-(5, 'actividad 3-2', 'n', 2, NULL),
-(6, 'actividad 4-2', 'n', 2, NULL),
-(8, 'actividad 1-3', 's', 3, NULL),
-(9, 'actividad 2-3', 's', 3, NULL),
-(10, 'actividad 3-3', 's', 3, NULL),
-(11, 'actividad 4-3', 'n', 3, NULL);
+    (1, 'actividad 1 ', 's', 1, NULL),
+    (2, 'actividad 2', 's', 1, NULL),
+    (3, 'actividad 1-2', 's', 2, NULL),
+    (4, 'actividad 2-2', 'n', 2, NULL),
+    (5, 'actividad 3-2', 'n', 2, NULL),
+    (6, 'actividad 4-2', 'n', 2, NULL),
+    (8, 'actividad 1-3', 's', 3, NULL),
+    (9, 'actividad 2-3', 's', 3, NULL),
+    (10, 'actividad 3-3', 's', 3, NULL),
+    (11, 'actividad 4-3', 'n', 3, NULL);

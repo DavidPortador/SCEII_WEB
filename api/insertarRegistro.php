@@ -5,7 +5,9 @@
 			$obj = new baseDatos();
 
 			if($_POST['metodo'] == "insertarJefeLab"){
-				/* NO ENTIENDOS */
+
+				/* YO NO ENTIENDOS ~DP */
+
 			}else if($_POST['metodo'] == "insertarDocente"){
 				if($_POST['nombre'] != null and $_POST['apellidos'] != null and
 				$_POST['correo'] != null and $_POST['clave'] != null and
@@ -22,7 +24,7 @@
 					if($in > 0){
 						header("location: ../index.php?e=ok");
 					}else{
-						header("location: ../php/registro/tipoRegistro.php?e=ni"); // NoInsertado
+						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}
 				}else{
 					header("location: ../php/registro/tipoRegistro.php?e=va"); // VAcio
@@ -48,7 +50,7 @@
 					if($in > 0){
 						header("location: ../index.php?e=ok");
 					}else{
-						header("location: ../php/registro/tipoRegistro.php?e=ni"); // NoInsertado
+						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}
 				}else{
 					header("location: ../php/registro/tipoRegistro.php?e=va"); // VAcio
@@ -57,7 +59,7 @@
 				if($_POST['nombre'] != null and $_POST['apellidos'] != null and
 				$_POST['correo'] != null and $_POST['clave'] != null and
 				$_POST['genero'] != null and $_POST['fecha_nac'] != null and 
-				$_POST['institucion'] != null and $_POST['fecha']){
+				$_POST['institucion'] != null){
 					$query = "call insert_usuario_visitante('".
 						$_POST['nombre']."','".
 						$_POST['apellidos']."','".
@@ -65,22 +67,23 @@
 						$_POST['clave']."','".
 						$_POST['genero']."','".
 						$_POST['fecha_nac']."','".
-						$_POST['institucion']."','".
-						$_POST['fecha']."');";
+						$_POST['institucion']."');";
 					//echo $query."\n";
 					$in = $obj->nonQueryId($query);
 					if($in > 0){
 						header("location: ../index.php?e=ok");
 					}else{
-						header("location: ../php/registro/tipoRegistro.php?e=ni"); // NoInsertado
+						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}
 				}else{
 					header("location: ../php/registro/tipoRegistro.php?e=va"); // VAcio
 				}
+			}else{
+				header("location: ../php/registro/tipoRegistro.php?e=tr"); // Tipo de Registro
 			}
 
 		} catch (Exception $e) {
-			header("location: ../index.php?e=ex");
+			header("location: ../index.php?e=ex"); // EXception
 		}
 		
 ?>
