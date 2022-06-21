@@ -57,7 +57,7 @@
         public function nonQueryId($sqlstr){
             $results = $this->conexion->query($sqlstr);
             $filas = $this->conexion->affected_rows;
-            if($filas != 0){
+            if($filas > 0){
                 return $filas;
             }else{
                 return 0;

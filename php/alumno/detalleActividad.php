@@ -1,11 +1,16 @@
 <?php
-include "cabecera.php";
+	include "head.php";
+	include "../../api/conexion.php";
 ?>
-<h1 style="text-align:center;">Actividades</h1>
-</div></nav></div><br>
+
+				<h1 style="text-align:center;">Laboratorios</h1>
+			</div>
+		</nav>
+	</div>
+	<br>
+
 <?php
 
-include "../../api/conexion.php";
 
 class detalle extends baseDatos{
     function accion($tipo){ 

@@ -22,7 +22,7 @@
 					//echo $query."\n";
 					$in = $obj->nonQueryId($query);
 					if($in > 0){
-						header("location: ../index.php?e=ok");
+						header("location: ../index.php?c=ok"); // Exitoso
 					}else{
 						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}
@@ -48,7 +48,7 @@
 					//echo $query."\n";
 					$in = $obj->nonQueryId($query);
 					if($in > 0){
-						header("location: ../index.php?e=ok");
+						header("location: ../index.php?c=ok"); // Exitoso
 					}else{
 						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}
@@ -71,7 +71,7 @@
 					//echo $query."\n";
 					$in = $obj->nonQueryId($query);
 					if($in > 0){
-						header("location: ../index.php?e=ok");
+						header("location: ../index.php?c=ok"); // Exitoso
 					}else{
 						header("location: ../php/registro/tipoRegistro.php?e=ni"); // No Insertado
 					}

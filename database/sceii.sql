@@ -1,6 +1,6 @@
-drop database industrial;
-create database industrial;
-use industrial;
+drop database sceii;
+create database sceii;
+use sceii;
 
 create table carrera(
     id int not null auto_increment,
@@ -16,19 +16,20 @@ create table semestre(
 
 create table usuario(
     id int not null auto_increment,
+    token varchar(400) unique,
     nombre varchar(50) not null,
     apellidos varchar(50) not null,
-    correo varchar(50) not null,
+    correo varchar(50) not null unique,
     clave char(44) not null,
     genero char(1) not null,
     tipoUsuario varchar(15) not null,
     fecha_Nac date,
     constraint usuarioPK primary key (id),
     constraint usuarioUN unique (correo),
-    constraint usuarioCK1 check 
+    constraint usuarioCK1 check
         (genero = 'm' or genero = 'f' or genero = 'o'),
-    constraint usuarioCK2 check 
-        (tipoUsuario = 'administrador' or tipoUsuario = 'docente' or 
+    constraint usuarioCK2 check
+        (tipoUsuario = 'administrador' or tipoUsuario = 'docente' or
         tipoUsuario = 'alumno' or tipoUsuario = 'visitante')
 );
 
@@ -292,6 +293,147 @@ language sql
             end if;
     end;
 */
+
+
+
+/*v2*/
+
+/*---*/
+/*
+create procedure insert_alumno(p_id_usuario int, p_no_control int, p_id_carrera int, p_id_semestre int)
+language sql
+    begin
+        start transaction;
+        insert into alumno(id_usuario, no_control ,id_carrera, id_semestre)
+        values(p_id_usuario, p_no_control, p_id_carrera, p_id_semestre);
+        commit;
+    end;
+
+
+create procedure insert_docente(p_id_usuario int)
+language sql
+    begin
+        start transaction ;
+        insert into docente(id_usuario)
+        values(p_id_usuario);
+        commit;
+    end;
+
+
+create procedure insert_visitante(p_id_usuario int, p_institucion varchar(50))
+language sql
+    begin
+        start transaction ;
+        insert into visitante(id_usuario, institucion, fecha)
+        values(p_id_usuario, p_institucion, curdate());
+        commit;
+    end;
+
+
+create or replace procedure insert_usuario_alumno
+(p_nombre varchar(50), p_apelllidos varchar(50), p_correo varchar(50), p_clave varchar(44),
+p_genero char(1),p_fecha_nac date, p_no_control int, p_id_carrera int, p_id_semestre int)
+language sql
+    begin
+        start transaction;
+        set @correo = (select id from usuario where correo = p_correo);
+        if @correo is null then
+        set @no_control = (select no_control from alumno where no_control = p_no_control);
+        if @no_control is null then
+        insert into usuario(nombre, apellidos, correo, clave, genero, tipoUsuario, fecha_Nac)
+        values(p_nombre, p_apelllidos, p_correo, password(p_clave), p_genero,'alumno', p_fecha_nac);
+        set @id_usuario = (select id from usuario u where correo=p_correo);
+        if @id_usuario is null then
+            signal sqlstate '45000'
+            set message_text  = 'El usuario no existe';
+            rollback ;
+        else
+            call insert_alumno(@id_usuario,p_no_control,p_id_carrera,p_id_semestre);
+            commit;
+        commit;
+            end if;
+        else
+            signal sqlstate '45000'
+            set message_text  = 'El no. Control ya se encuentra registrado';
+            end if;
+        else
+            signal sqlstate '45000'
+            set message_text  = 'El correo ya se encuentra registrado';
+            end if;
+    end;
+
+
+create or replace procedure insert_token(p_correo varchar(50), p_token varchar(400))
+language sql
+begin
+update usuario set token = p_token where correo = p_correo;
+end;
+
+create or replace procedure insert_usuario_docente
+(p_nombre varchar(50), p_apelllidos varchar(50), p_correo varchar(50), p_clave varchar(44),
+p_genero char(1),p_fecha_nac date)
+language sql
+    begin
+        start transaction ;
+         set @correo = (select id from usuario where correo = p_correo);
+        if @correo is null then
+        insert into usuario(nombre, apellidos, correo, clave, genero, tipoUsuario, fecha_Nac)
+        values(p_nombre, p_apelllidos, p_correo, password(p_clave), p_genero,'docente', p_fecha_nac);
+        set @id_usuario = (select id from usuario u where correo=p_correo);
+        if @id_usuario is null then
+            signal sqlstate '45000'
+            set message_text  = 'el usuario no existe';
+            rollback ;
+        else
+            call insert_docente(@id_usuario);
+            commit;
+        commit;
+            end if;
+        else
+            signal sqlstate '45000'
+            set message_text  = 'El correo ya se encuentra registrado';
+            end if;
+    end;
+
+create or replace procedure insert_usuario_visitante
+(p_nombre varchar(50), p_apelllidos varchar(50), p_correo varchar(50), p_clave varchar(44),
+p_genero char(1),p_fecha_nac date, p_institucion varchar(50))
+language sql
+    begin
+        start transaction ;
+        set @correo = (select id from usuario where correo = p_correo);
+        if @correo is null then
+        insert into usuario(nombre, apellidos, correo, clave, genero, tipoUsuario, fecha_Nac)
+        values(p_nombre, p_apelllidos, p_correo, password(p_clave), p_genero,'visitante', p_fecha_nac);
+        set @id_usuario = (select id from usuario u where correo=p_correo);
+        if @id_usuario is null then
+            signal sqlstate '45000'
+            set message_text  = 'el usuario no existe';
+            rollback ;
+        else
+            call insert_visitante(@id_usuario,p_institucion);
+            commit;
+        commit;
+            end if;
+        else
+             signal sqlstate '45000'
+            set message_text  = 'El correo ya se encuentra registrado';
+             end if;
+    end;
+
+create or replace procedure login (p_correo varchar(50), p_clave varchar(44))
+language sql
+    begin
+        set @id = (select id from usuario where correo = p_correo and clave = password(p_clave));
+        if @id is not null then
+            select token from usuario where id = @id;
+            else
+            signal sqlstate '45000'
+            set message_text  = 'Datos incorrectos';
+            end if;
+    end;
+*/
+/*---*/
 
 -- TABLAS INICIALIZADAS EN LA BASE DE DATOS
 

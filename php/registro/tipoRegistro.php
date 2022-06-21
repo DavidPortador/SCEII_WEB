@@ -11,7 +11,7 @@
 			<h3 class="fw-normal">Registrarme como:</h3>
             <br>
 			<form action="registro.php" method="post">
-			    <input type="submit" name="jefeLab" class="regBtn mx-auto" value="Jefe de laboratorio" />
+			    <input type="submit" name="jefeLab" class="regBtn mx-auto" value="Jefe de Laboratorio" />
                 <label class="fs-6">Requiere verificación adicional</label>
             </form>
             <form action="registro.php" method="post">

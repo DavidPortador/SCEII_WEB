@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include "../api/conexion.php";
+	include "../../api/conexion.php";
 		try {
 			if(isset($_POST['correo']) and isset($_POST['clave'])){
 				$obj = new baseDatos();
@@ -12,29 +12,31 @@
 					if(count($registro) > 0){
 
 						// USUARIO VALIDO
+						$_SESSION['tipoUsuario']=$registro['tipoUsuario'];
 						$_SESSION['nombre']=$registro['nombre']." ".$registro['apellidos'];
 						$_SESSION['correo']=$registro['correo'];
-						$_SESSION['tipoUsuario']=$registro['tipoUsuario'];
 
 						// Redireccionamiento dependiendo el tipo de usuario
-						if($registro['tipoUsuario'] == "administrador"){
-							header("location: administrador.php");
+						if($registro['tipoUsuario'] == "jefeLab"){
+							header("location: ../jefe/home.php");
 						}else if($registro['tipoUsuario'] == "alumno"){ //alumno
-							header("location: alumno/laboratorios.php");
+							header("location: ../alumno/home.php");
 						}else if($registro['tipoUsuario'] == "docente"){
-							header("location: docente.php");
+							header("location: ../docente/home.php");
 						}else if($registro['tipoUsuario'] == "visitante"){
-							header("location: visitante.php");
+							header("location: ../visitante/home.php");
+						}else{
+							header("location: ../../index.php?e=ne");
 						}
 					}
 				}else{
-					header("location: ../index.php?e=ne");
+					header("location: ../../index.php?e=ne");
 				}
 			}else{
-				header("location: ../index.php?e=va");
+				header("location: ../../index.php?e=va");
 			}
 		} catch (Exception $e) {
-			header("location: ../index.php?e=ex");
+			header("location: ../../index.php?e=ex");
 		}
 		
 ?>
