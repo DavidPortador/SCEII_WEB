@@ -1,12 +1,12 @@
 <?php
 	include "head.php";
-  include "../../api/conexion.php";
 ?>
 
 <body>
   <div class="signupFrm">
     <div class="wrapper">
-      <form method="post" action="../../api/insertarRegistro.php" class="form-green formlg">
+      <form method="post" action="../backend/peticiones.php" class="form-green formlg">
+        <input type="hidden" name="operacion" value="registro" />
         <h3 class="fw-normal text-center">Registro</h3>
 
         <div class="text-center formlg">
@@ -56,7 +56,7 @@
           <option value="o">Otre</option>
         </select>
         <div class="inputContainer">
-          <input name="fecha_nac" type="date" class="input-green" placeholder="a" required />
+          <input name="fecha_nacimiento" type="date" class="input-green" placeholder="a" required />
           <label class="labelform">
           <i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
           </label>
@@ -75,10 +75,35 @@
               <label id="lblnc" class="labelform">
                 <i class="fa-solid fa-id-card"></i> No. Control:
               </label>
-            </div>';
-            $obj = new baseDatos();
-            echo $obj->crearSelect("carrera", "nombre", "Carrera");
-            echo $obj->crearSelect("semestre", "nombre", "Semestre");
+            </div>
+            <select name="id_carrera">
+              <option value="1">Licenciatura en Administracion</option>
+              <option value="2">Ingeniería Ambiental</option>
+              <option value="3">Ingeniería Bioquímica</option>
+              <option value="4">Ingeniería Electrónica</option>
+              <option value="5">Ingeniería en Gestión Empresarial</option>
+              <option value="6">Ingeniería Industrial</option>
+              <option value="7">Ingeniería Mecánica</option>
+              <option value="8">Ingeniería Mecatrónica</option>
+              <option value="9">Ingeniería en Sistemas Computacionales</option>
+              <option value="10">Ingeniería Química</option>
+            </select>
+            <select name="id_semestre">
+              <option value="1">1er Semestre</option>
+              <option value="2">2do Semestre</option>
+              <option value="3">3er Semestre</option>
+              <option value="4">4to Semestre</option>
+              <option value="5">5to Semestre</option>
+              <option value="6">6to Semestre</option>
+              <option value="7">7mo Semestre</option>
+              <option value="8">8vo Semestre</option>
+              <option value="9">9no Semestre</option>
+              <option value="10">10mo Semestre</option>
+              <option value="11">11vo Semestre</option>
+              <option value="12">12vo Semestre</option>
+              <option value="o">otro</option>
+            </select>';
+            
           }else if(isset($_POST['visitante'])){
             echo '<input name="metodo" type="hidden" value="insertarVisitante" />';
             echo '

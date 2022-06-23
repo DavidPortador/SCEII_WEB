@@ -21,7 +21,8 @@
 		<div class="signupFrm">
 			<img src="assets/logo.png" alt="logo" class="mx-auto d-block" width="140px" height="140px">
 			<!-- Formulario de sesión -->
-			<form method="post" action="php/backend/peticionesHTTP.php" class="form-green">
+			<form method="post" action="php/backend/peticiones.php" class="form-green">
+				<input type="hidden" name="operacion" value="login" />
 				<h3 class="fw-normal">Iniciar Sesión</h3>
 				<div class="inputContainer">
 					<input name="correo" type="email" class="input-green" placeholder="a" required />
@@ -37,11 +38,13 @@
 				</div>
 
 				<?php
+					// Conexiones
 					if(isset($_GET['c'])){
 						if($_GET['c'] == "ok"){
 							echo "<div class='text-success text-end'><b>Usuario insertado con exito</b></div>";
 						}
 					}
+					// Excepciones
 					if(isset($_GET['e'])){
 						if($_GET['e'] == "ne"){
 							echo "<div class='text-danger text-end'><b>Usuario incorrecto</b></div>";
@@ -51,6 +54,8 @@
 							echo "<div class='text-danger text-end'><b>Ocurrio una Exception</b></div>";
 						}else if($_GET['e'] == "se"){
 							echo "<div class='text-danger text-end'><b>Inicie sesión</b></div>";
+						}else if($_GET['e'] == "sp"){
+							echo "<div class='text-danger text-end'><b>Error en la petición</b></div>";
 						}
 					}
 				?>
