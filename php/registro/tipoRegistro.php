@@ -1,5 +1,5 @@
 <?php
-	include "head.php";
+	include "header.php";
 ?>
 
 <!-- Cuerpo de la página -->
@@ -35,11 +35,7 @@
 					}
 				}
 			?>
-			
-        </div>
-	</div>
-</body>
 
 <?php
-	include "end.php";
+	include "footer.php";
 ?>

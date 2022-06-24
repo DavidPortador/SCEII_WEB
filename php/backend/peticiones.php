@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     // Menu de peticiones posibles
     if(isset($_POST['operacion'])){
         switch ($_POST['operacion']) {
@@ -13,6 +13,8 @@
                 header("location: ../../index.php?e=sp"); // Sin Peticiones
                 break;
         }
+    }else{
+        header("location: ../../index.php?e=sp"); // Sin Peticiones
     }
 
     // Sintaxis de una peticion http
@@ -37,6 +39,10 @@
         }
     }
 
+    function getToken($token){
+        return json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1]))), true);
+    }
+
     function login(){
         if(isset($_POST['correo']) and isset($_POST['clave'])){
             try {
@@ -52,33 +58,24 @@
                 }else{
                     $datos = json_decode($resultado, true); //true retorna un arreglo (false un obj)
                     //var_dump($datos);
-                    
                     if(isset($datos['data']['token'])){ // validacion de que existe el token
                         // Datos del API
                         $_SESSION['message'] = $datos['message'];
                         $_SESSION['token'] =  $datos['data']['token'];
-
                         // Conversion del token
-                        $data = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $_SESSION['token'])[1]))), true);
-
-                        // Datos del Token
+                        $data = getToken($_SESSION['token']);                        // Datos del Token
                         $_SESSION['iat'] = $data['iat']; // fecha de creacion del token
                         $_SESSION['exp'] = $data['exp']; // fecha de expiracion del token
                         $_SESSION['id'] = $data['data']['id']; // data->id
                         $_SESSION['correo'] = $data['data']['correo']; // data->correo
                         $_SESSION['tipo'] = $data['data']['typeUser']; // data->typeUser
-
-                        echo $_SESSION['tipo']." -> ";
-                        echo $_SESSION['token'];
-
+                        //echo $_SESSION['tipo']." -> ".$_SESSION['token'];
                         if($_SESSION['tipo'] == "alumno"){
-                            //header("location: ../alumno/home.php");
+                            header("location: ../alumno/home.php");
                         }
-
                     }else{
                         header("location: ../../index.php?e=ne");
                     }
-                    
                 }
             } catch (Exception $e) {
                 header("location: ../../index.php?e=ex");
@@ -141,29 +138,22 @@
         }else{
             $datos = json_decode($resultado, true); //true retorna un arreglo (false un obj)
             //var_dump($datos);
-            
             if(isset($datos['data']['token'])){ // validacion de que existe el token
                 // Datos del API
                 $_SESSION['message'] = $datos['message'];
                 $_SESSION['token'] =  $datos['data']['token'];
-
                 // Conversion del token
-                $data = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $_SESSION['token'])[1]))), true);
-
+                $data = getToken($_SESSION['token']);
                 // Datos del Token
                 $_SESSION['iat'] = $data['iat']; // fecha de creacion del token
                 $_SESSION['exp'] = $data['exp']; // fecha de expiracion del token
                 $_SESSION['id'] = $data['data']['id']; // data->id
                 $_SESSION['correo'] = $data['data']['correo']; // data->correo
                 $_SESSION['tipo'] = $data['data']['typeUser']; // data->typeUser
-
-                echo $_SESSION['tipo']." -> ";
-                echo $_SESSION['token'];
-
-                if($_SESSION['tipo'] == "alumno"){
-                    //header("location: ../alumno/home.php");
+                //echo $_SESSION['tipo']." -> ".$_SESSION['token'];
+                if($_SESSION['tipo'] == "alumno"){ // por si acaso :v
+                    header("location: ../alumno/home.php");
                 }
-
             }else{
                 header("location: ../../index.php?e=ne");
             }

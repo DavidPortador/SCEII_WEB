@@ -1,5 +1,8 @@
 <?php
-	include "head.php";
+  session_start();
+  session_unset();
+  session_destroy();
+	include 'header.php';
 ?>
 
 <body>
@@ -8,7 +11,6 @@
       <form method="post" action="../backend/peticiones.php" class="form-green formlg">
         <input type="hidden" name="operacion" value="registro" />
         <h3 class="fw-normal text-center">Registro</h3>
-
         <div class="text-center formlg">
           <?php
             if(isset($_POST['jefeLab'])){
@@ -117,9 +119,7 @@
             header("location: tipoRegistro.php?e=tr"); // Tipo de Registro
           }
         ?>
-          
         <!-- Botones -->
-
         <table>
             <td>
               <a class="cancelBtn" href="../../index.php">Cancelar</a>
@@ -128,12 +128,8 @@
               <input type="submit" class="submitBtn" value="Registrar" />
             </td>
         </table>
-
       </form>
-    </div>
-  </div>
-</body>
-
+      
 <?php
-	include "end.php";
+	include 'footer.php';
 ?>

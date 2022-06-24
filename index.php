@@ -80,7 +80,7 @@
 				-->
 
 				<a href="https://play.google.com/store?hl=es" target="_bank">
-				<i class="fa-brands fa-google-play fa-2x"></i>
+					<i class="fa-brands fa-google-play fa-2x"></i>
 				</a>
 
 				<a href="https://www.apple.com/mx/app-store/" target="_bank">

@@ -1,33 +1,38 @@
 <?php
-	include "cabecera.php";
+	include "head.php";
+	include "../../api/conexion.php";
 ?>
-
-<h1 style="text-align:center;">Laboratorios</h1>
-</div></nav></div><br>
+				<h1 style="text-align:center;">Practicas</h1>
+			</div>
+		</nav>
+	</div>
+	<br>
+	
 <?php
 
-include "../../api/conexion.php";
-
-class Laboratorios extends baseDatos{
-    function accion($tipo){ 
-		switch($tipo){
-			case 'listar':
-				echo $this->despLaboratorios("SELECT * from materia");
-				break;
+	class Actividades extends baseDatos{
+		function accion($tipo){ 
+			switch($tipo){
+				case 'listar':
+					$laboratorio=mysqli_fetch_array($this->consulta("SELECT id from materia where nombre='".$_POST['ver']."';"));
+					echo $this->despPracticas("SELECT * from practicas where id_materia='".$laboratorio[0]."';",
+					"SELECT porcentaje from practicas where id_materia='".$laboratorio[0]."';");
+					break;
+			}
 		}
 	}
-}
 
-$oUser = new Laboratorios();
-if(isset($_POST['tipo'])){
-	$oUser->accion($_POST['tipo']);
-}
-else{
-	$oUser->accion('listar');
-}
+	$oUser = new Actividades();
+	if(isset($_POST['tipo'])){
+		$oUser->accion($_POST['tipo']);
+	}else{
+		$oUser->accion('listar');
+	}
 
-include "footer.php";
+	include "end.php";
 ?>
+
+
 <!--<div class="bordes" style="width:70%;margin:auto;border-radius:0.5rem;">
 <table>
 	<tr>

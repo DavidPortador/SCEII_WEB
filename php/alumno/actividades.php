@@ -1,53 +1,29 @@
 <?php
-	include "head.php";
-	include "../../api/conexion.php";
+    include('header.php');
 ?>
-				<h1 style="text-align:center;">Practicas</h1>
-			</div>
-		</nav>
-	</div>
-	<br>
-	
+<!-- Contenido -->
+<h2>Usuario: <?=$_SESSION['correo']?></h2>
+  <p>Message: <?=$_SESSION['message']?></p>
+  <div class="container">
+    <p>Laboratorios del id: <?=$_SESSION['id']?></p>
+    <a href="detalle.php">
+      <div class="form-act text-white">
+        <i class="fa-solid fa-star" style="color:yellow;"></i> Actividad 1
+        <div class="progress mt-3">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+        </div>
+      </div>
+    </a>
+    <br>
+    <div class="form-act">
+        <i class="fa-solid fa-star-half-stroke"></i> Actividad 2
+        <div class="progress mt-3">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20">20%</div>
+        </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-success btn-circle"><i class="fa-solid fa-plus"></i></button>
+<!-- Fin de Contenido -->
 <?php
-
-	class Actividades extends baseDatos{
-		function accion($tipo){ 
-			switch($tipo){
-				case 'listar':
-					$laboratorio=mysqli_fetch_array($this->consulta("SELECT id from materia where nombre='".$_POST['ver']."';"));
-					echo $this->despPracticas("SELECT * from practicas where id_materia='".$laboratorio[0]."';",
-					"SELECT porcentaje from practicas where id_materia='".$laboratorio[0]."';");
-					break;
-			}
-		}
-	}
-
-	$oUser = new Actividades();
-	if(isset($_POST['tipo'])){
-		$oUser->accion($_POST['tipo']);
-	}else{
-		$oUser->accion('listar');
-	}
-
-	include "end.php";
+    include('footer.php');
 ?>
-
-
-<!--<div class="bordes" style="width:70%;margin:auto;border-radius:0.5rem;">
-<table>
-	<tr>
-		<div class="card" style="width: 500px;border-radius: 1rem;background-color:#212121;margin:auto;">
-		<div class="card-body" style="border-radius: 1rem;background-color:#0E0E0F;">
-			<h5 class="card-title">Practica de seguridad</h5>  
-			<div class="progress"> 
-				<div class="progress-bar" role="progressbar" style="width: 25%; background-color:green; color:#212121;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-			</div>
-			<br>
-			<a href="detalleActividad.php" class="btn btn-gris">Ver</a>
-			<img class="icono" src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="estrella">
-		</div>
-		</div> 
-</tr>
-</table>
-</div>
-<br>-->
