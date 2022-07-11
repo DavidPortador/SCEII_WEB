@@ -7,14 +7,14 @@
     background-color: #17202A;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 80px;
+    padding-top: 80px; /**/
     box-shadow: 0 0 30px black;
     border-radius: 3%;
   }
   .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 32px; /**/
     text-decoration: none;
-    font-size: 20px;
+    font-size: 20px; /**/
     color: #818181;
     display: block;
     transition: 0.5s;
@@ -35,15 +35,15 @@
     right: 0;
     position: fixed;
     width: 100%;
-    font-size: 20px;
+    font-size: 20px; /**/
     cursor: pointer;
     background-color: #17202A;
     color: white;
-    padding: 20px 20px;
+    padding: 20px 20px; /**/
     border: none;
     text-align: left;
     margin-bottom: 1%;
-    box-shadow: 0 0 30px black;
+    box-shadow: 0 0 30px black; /**/
     z-index: 3;
   }
   .openbtn:hover {
@@ -51,55 +51,55 @@
   }
   #main {
     transition: margin-left .5s;
-    padding: 16px;
-    top: 40px;
+    padding: 16px; /**/
+    top: 40px; /**/
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+  @media screen and (max-height: 450px) { /**/
+    .sidebar {padding-top: 15px;} /**/
+    .sidebar a {font-size: 18px;} /**/
   }
 
   .form-lab {
     position: relative;
     background-color: #17202A;
     background-image: url(../assets/wall-1.jpg);
-    filter: blur(0.8px);
+    filter: blur(0.8px); /**/
     width: 100%;
-    height: 200px;
-    border-radius: 18px;
-    padding: 20px 40px;
+    height: 200px; /**/
+    border-radius: 18px; /**/
+    padding: 20px 40px; /**/
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black;
+    box-shadow: 0 0 30px black; /**/
     cursor: pointer;
   }
 
   .form-lab:hover {
-    transform: translateY(-2px);
-    filter: blur(0px) grayscale(0);
+    transform: translateY(-2px); /**/
+    filter: blur(0px) grayscale(0); /**/
   }
 
   .form-act {
     position: relative;
     background-color: #17202A;
     background-image: url(../assets/wall-2.jpg);
-    filter: blur(0.8px);
+    filter: blur(0.8px); /**/
     width: 100%;
-    height: 200px;
-    border-radius: 18px;
-    padding: 20px 40px;
+    height: 200px; /**/
+    border-radius: 18px; /**/
+    padding: 20px 40px; /**/
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black;
+    box-shadow: 0 0 30px black; /**/
     cursor: pointer;
   }
 
   .form-act:hover {
-    transform: translateY(-2px);
-    filter: blur(0px) grayscale(0);
+    transform: translateY(-2px); /**/
+    filter: blur(0px) grayscale(0); /**/
   }
 
   .form-det {
@@ -107,17 +107,17 @@
     background-color: #17202A;
     background-image: url(../assets/wall-3.jpg);
     width: 100%;
-    height: 150px;
-    border-radius: 18px;
-    padding: 20px 40px;
+    height: 150px; /**/
+    border-radius: 18px; /**/
+    padding: 20px 40px; /**/
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black;
+    box-shadow: 0 0 30px black; /**/
   }
 
   .form-det:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /**/
   }
 
   .btn-circle {
@@ -125,19 +125,19 @@
     margin-right: 2%;
     margin-left:auto;
     display:block;
-    width: 70px;
-    height: 70px;
-    padding: 10px 16px;
-    font-size: 24px;
+    width: 70px; /**/
+    height: 70px; /**/
+    padding: 10px 16px; /**/
+    font-size: 24px; /**/
     line-height: 1.33;
-    border-radius: 35px;
+    border-radius: 35px; /**/
   }
 
   .contenido{
-    margin-top: 80px;
+    margin-top: 80px; /**/
   }
 
   .lab-cont{
     z-index: 2;
-    filter: blur(0px) grayscale(0);
+    filter: blur(0px) grayscale(0); /**/
   }
