@@ -1,0 +1,118 @@
+<style>
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+    html,
+    body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    }
+
+    body {
+    font: normal 14px/1.4em Helvetica, sans-serif;
+    }
+
+    p {
+    margin-top: .5em;
+    }
+
+    [role="main"] {
+    width: inherit;
+    height: inherit;
+    background: rgba(245, 245, 245, 1)
+    }
+
+    [data-name="side"] {
+    position: absolute;
+    width: 14.28571428571429em;
+    height: inherit;
+    padding: 1em;
+    background: rgb(50, 50, 50);
+    }
+
+    [data-name="side"] ul {
+    -webkit-transition: all 200ms linear;
+    -webkit-transform: scale(.8, .8);
+    }
+
+    [data-name="side"].pop ul {
+    -webkit-transform: scale(1, 1);
+    }
+
+    [data-name="side"] li {
+    color: rgb(240, 240, 240);
+    padding: .5em .5em .6em .5em;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .8);
+    }
+
+    [data-name="side"] li:first-child {
+    border-top: none;
+    }
+
+    [data-name="side"] li:last-child {
+    border-bottom: none;
+    }
+
+    [data-name="master"] {
+    position: relative;
+    padding: 1em;
+    height: inherit;
+    background: inherit;
+    box-shadow: -1px 0 1px -1px rgba(0, 0, 0, .3);
+    -webkit-transition: all 200ms ease-in-out;
+    overflow: hidden;
+    }
+
+    [data-name="master"].slide {
+    left: 14.28571428571429em;
+    }
+
+    [data-name="master"].slide .toggle {
+    -webkit-transform: translateX(-1.2em);
+    }
+
+    .toggle {
+    font-size: 1.3em;
+    -webkit-transition: all 100ms 200ms;
+    -webkit-transform: translateX(-15px);
+    }
+
+    .toggle:before {
+    position: relative;
+    content: '\2630';
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div role="main">
+  <aside data-name="side">
+    <ul>
+      <li>Menu Item</li>
+      <li>Additional</li>
+      <li>Here's Another</li>
+      <li>More Here</li>
+      <li>One Final</li>
+    </ul>
+  </aside>
+  <section data-name="master">
+    <div class="toggle"></div>
+    <p>AdminLTE is a popular open source WebApp template for admin dashboards and control panels. It is a responsive HTML template that is based on the CSS framework Bootstrap 3. It utilizes all of the Bootstrap components in its design and re-styles many
+      commonly used plugins to create a consistent design that can be used as a user interface for backend applications. AdminLTE is based on a modular design, which allows it to be easily customized and built upon. This documentation will guide you through
+      installing the template and exploring the various components that are bundled with the template.</p>
+  </section>
+</div>
+<script>
+    var master = $('[data-name="master"]'),
+    side = $('[data-name="side"]');
+
+    $('.toggle', master).on('click', function() {
+    master.toggleClass('slide');
+    side.toggleClass('pop');
+    });
+</script>

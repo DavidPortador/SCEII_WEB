@@ -46,7 +46,7 @@
     function login(){
         if(isset($_POST['correo']) and isset($_POST['clave'])){
             try {
-                $url = "https://overhanded-extensio.000webhostapp.com/api-sceii/v1/routes/login.php";
+                $url = "http://192.168.100.214/api-sceii/v1/routes/login.php";
                 // Los datos de formulario
                 $datos = [
                     "correo" => $_POST['correo'],
@@ -54,7 +54,8 @@
                 ];
                 $resultado = peticion($url, $datos, "POST", "");
                 if ($resultado === false){
-                    header('location: ../../index.php?e=ne'); // Fallida 4
+                    echo "Error :( ".$resultado;
+                    // header('location: ../../index.php?e=el1'); // Fallida 4
                 }else{
                     $datos = json_decode($resultado, true); //true retorna un arreglo (false un obj)
                     //var_dump($datos);
@@ -74,7 +75,7 @@
                             header("location: ../alumno/home.php");
                         }
                     }else{
-                        header("location: ../../index.php?e=ne");
+                        header("location: ../../index.php?e=el2");
                     }
                 }
             } catch (Exception $e) {
@@ -119,7 +120,7 @@
     }
 
     function inAlumno(){
-        $url = "https://sceii.000webhostapp.com/api-sceii/v1/routes/registro.php?tipo=alumno";
+        $url = "http://192.168.100.214/api-sceii/v1/routes/registro.php?tipo=alumno";
         // Los datos de formulario
         $datos = [
             "nombre" => $_POST['nombre'],
@@ -134,7 +135,7 @@
         ];
         $resultado = peticion($url, $datos, "POST", "");
         if ($resultado === false){
-            header('location: ../../index.php?e=ne'); // Fallida 4
+            header('location: ../../index.php?e=error1'); // Fallida 4
         }else{
             $datos = json_decode($resultado, true); //true retorna un arreglo (false un obj)
             //var_dump($datos);
@@ -155,7 +156,7 @@
                     header("location: ../alumno/home.php");
                 }
             }else{
-                header("location: ../../index.php?e=ne");
+                header("location: ../../index.php?e=error2");
             }
         }
     }
