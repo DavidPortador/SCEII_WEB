@@ -67,7 +67,8 @@
 					<br>
 					<a href="php/registro/tipoRegistro.php">Crear una cuenta</a>
 					<br>
-					<!-- Iconos con vinculos a redes sociales 
+
+					<!-- Iconos con vinculos a redes sociales -->
 					
 					<a href="https://www.facebook.com/" target="_bank">
 						<i class="fa-brands fa-facebook fa-2x"></i>
@@ -78,7 +79,8 @@
 					<a href="https://web.whatsapp.com/" target="_bank">
 						<i class="fa-brands fa-whatsapp fa-2x"></i>
 					</a>
-					-->
+
+					<!-- Iconos con vinculos a la Tienda
 
 					<a href="https://play.google.com/store?hl=es" target="_bank">
 						<i class="fa-brands fa-google-play fa-2x"></i>
@@ -87,7 +89,7 @@
 					<a href="https://www.apple.com/mx/app-store/" target="_bank">
 						<i class="fa-brands fa-apple fa-2x"></i>
 					</a>
-
+					 -->
 				</form>
 			</div>
 		</div>

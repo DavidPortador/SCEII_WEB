@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap');
 
 body {
-  /*position: relative;*/
-  /*font-family: 'Merriweather', serif;*/
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   background-color: #131414;
@@ -22,12 +20,16 @@ body {
 .form-green {
   position: relative;
   background-color: #17202A;
-  min-width: 40vw;
-  width: 60vw;
-  max-width: 90vw;
+  width: 50vw;
   border-radius: 2%;
   padding: 20px 40px;
   box-shadow: 0 0 30px black;
+}
+
+@media screen and (min-width:0px) and (max-width:600px) {
+  .form-green {
+    width: 100vw;
+  }
 }
 
 .formlg{
